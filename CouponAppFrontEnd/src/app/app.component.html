@@ -1,0 +1,157 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="align-content:center">
+  <h1>
+    Welcome to Coupon Application
+  </h1>
+
+
+
+  <form #myform="ngForm" (ngSubmit)="onSubmit()">
+
+            <table border="1 px solid">
+            <tr>
+              <td>
+                <label for="coupon-title">Coupon title</label>
+              </td>
+              <td>
+                  <input type="text" id="coupon-title" name="couponTitle" ngControl="couponTitle" required [(ngModel)]="newCoupon.couponTitle">
+              </td>
+            </tr>
+            <tr>
+              <td><label for="coupon-title">Coupon Description</label> </td>
+              <td>
+                <input type="text" id="coupon-title" name="couponDescription" ngControl="couponDescription" required [(ngModel)]="newCoupon.couponDescription">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="value">Value</label> </td>
+              <td>
+                <input type="text" id="value" name="value" ngControl="value" required [(ngModel)]="newCoupon.value">
+              </td>
+            </tr>
+            <tr>
+              <td><label for="creditType">Credit Type</label> </td>
+              <td>
+                <input type="text" id="creditType" name="creditType" ngControl="creditType" required [(ngModel)]="newCoupon.creditType">
+              </td>
+            </tr>
+
+            <tr>
+              <td><label for="author">Author</label> </td>
+              <td>
+                <input type="text" id="author" name="author" ngControl="author" required [(ngModel)]="newCoupon.author">
+              </td>
+            </tr>
+
+            <tr>
+              <td><label for="validTill">valid Till</label> </td>
+              <td>
+                <input type="text" id="validTill" name="validTill" ngControl="validTill" required [(ngModel)]="newCoupon.validTill">
+              </td>
+            </tr>
+
+
+            <tr>
+              <td><label for="createdDate">Created Date</label> </td>
+              <td>
+                <input type="text" id="createdDate" name="createdDate" ngControl="createdDate" required [(ngModel)]="newCoupon.createdDate">
+              </td>
+            </tr>
+
+            <tr>
+              <td><label for="updatedDate">Updated Date</label> </td>
+              <td>
+                <input type="text" id="updatedDate" name="updatedDate" ngControl="updatedDate" required [(ngModel)]="newCoupon.updatedDate">
+              </td>
+            </tr>
+
+            <tr>
+                <td></td></tr>
+            <tr>
+              <td></td>
+
+              <td>
+                <button type="submit">Create Coupon</button>
+              </td>
+            </tr>
+          </table>
+
+        </form>
+
+
+
+  <div>
+      ==============================================================================================================================================================
+    </div>
+
+
+
+    <form #myform="ngForm" >
+        <table>
+
+
+          <tr>
+            <th>
+              <label for="coupon-title">Coupon title</label></th>
+            <th><label for="coupon-title">Coupon Description</label> </th>
+            <th>
+              <label for="value">Value</label> </th>
+            <th><label for="creditType">Credit Type</label> </th>
+            <th><label for="author">Author</label></th>
+            <th><label for="validTill">valid Till</label> </th>
+            <th><label for="createdDate">Created Date</label> </th>
+            <th><label for="updatedDate">Updated Date</label> </th>
+          </tr>
+          <tr *ngFor="let coupon of coupons" class="list-group-item">
+
+            <td>
+              <input type="text" id="coupon-title" name="couponTitle" ngControl="couponTitle" required [(ngModel)]="coupon.couponTitle">
+            </td>
+
+
+            <td>
+              <input type="text" id="coupon-title" name="couponDescription" ngControl="couponDescription" required [(ngModel)]="coupon.couponDescription">
+            </td>
+
+
+            <td>
+              <input type="text" id="value" name="value" ngControl="value" required [(ngModel)]="coupon.value">
+            </td>
+
+
+            <td>
+              <input type="text" id="creditType" name="creditType" ngControl="creditType" required [(ngModel)]="coupon.creditType">
+            </td>
+
+
+            <td>
+              <input type="text" id="author" name="author" ngControl="author" required [(ngModel)]="coupon.author">
+            </td>
+
+
+            <td>
+              <input type="text" id="validTill" name="validTill" ngControl="validTill" required [(ngModel)]="coupon.validTill">
+            </td>
+
+
+            <td>
+              <input type="text" id="createdDate" name="createdDate" ngControl="createdDate" required [(ngModel)]="coupon.createdDate">
+            </td>
+
+
+            <td>
+              <input type="text" id="updatedDate" name="updatedDate" ngControl="updatedDate" required [(ngModel)]="coupon.updatedDate">
+            </td>
+            <td></td> <button type="submit">Update</button>
+            <td>
+              <button type="submit">Delete</button>
+            </td>
+          </tr>
+        </table>
+
+        </form>
+
+
+
+</div>

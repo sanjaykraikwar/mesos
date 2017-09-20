@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CouponServiceConsumer/CouponServiceConsumer.iml" filepath="$PROJECT_DIR$/CouponServiceConsumer/CouponServiceConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/EurekaServer/EurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GatewayApplication/GatewayApplication.iml" filepath="$PROJECT_DIR$/GatewayApplication/GatewayApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CouponApp/TimeBackend.iml" filepath="$PROJECT_DIR$/CouponApp/TimeBackend.iml" />
+    </modules>
+  </component>
+</project>
