@@ -24,15 +24,15 @@ public class ConsumerControllerClient {
 	
 	public void getCoupon() throws RestClientException, IOException {
 		
-		//List<ServiceInstance> instances=discoveryClient.getInstances("CouponApplication");
+		List<ServiceInstance> instances=discoveryClient.getInstances("CouponApplication");
 		
-		List<ServiceInstance> instances=discoveryClient.getInstances("CouponZuulService");
+		//List<ServiceInstance> instances=discoveryClient.getInstances("CouponZuulService");
 		
 		ServiceInstance serviceInstance=instances.get(0);
 		
 		String baseUrl=serviceInstance.getUri().toString();
 		
-		baseUrl=baseUrl+"/couponApplication/coupon/1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
+		baseUrl=baseUrl+"/coupon/1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
 		
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response=null;
@@ -45,11 +45,6 @@ public class ConsumerControllerClient {
 		}
 		System.out.println(response.getBody());
 		
-		
-		
-
-		
-
 		
 	}
 

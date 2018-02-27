@@ -29,9 +29,12 @@ public class CouponControllerTest {
 	
 	Iterator  iterator;
 	
+	String uId ;
+	
+	 String couponTitle ;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp()  {
 		
 		/*mocking the required Object*/
 		
@@ -47,38 +50,56 @@ public class CouponControllerTest {
 		 
 		 iterator=mock(Iterator.class);
 		 
-		
+		 uId="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
+		 
+		 couponTitle="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a4";
 	}
 
 /* Test case for get Coupon based on ID*/
 	@Test
 	public void testGetCouponbyId() {
-		
-       String uId="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
-		
-        // define return value for method getUniqueId()
-        when(couponRepository.findOne(uId)).thenReturn(coupon);
-        
-        ResponseEntity<Coupon> couponResponse= controller.getCoupon(uId);
 
-        // use mock in test....
-        assertEquals(couponResponse.getBody().getId(), coupon.getId());
-        assertEquals(couponResponse.getStatusCode(), HttpStatus.OK);
+
+
+		// define return value for method getUniqueId()
+		when(couponRepository.findOne(uId)).thenReturn(coupon);
+
+		ResponseEntity<Coupon> couponResponse= controller.getCoupon(uId);
+
+		// use mock in test....
+		assertEquals(couponResponse.getBody().getId(), coupon.getId());
+		assertEquals(couponResponse.getStatusCode(), HttpStatus.OK);
 	}
-	
-	
+
+	/* Test case for get Coupon based on ID null result*/
+	@Test
+	public void testGetNULLCouponbyId() {
+
+
+
+		// define return value for method getUniqueId()
+		when(couponRepository.findOne(uId)).thenReturn(null);
+
+		ResponseEntity<Coupon> couponResponse= controller.getCoupon(uId);
+
+		// use mock in test....
+		assertEquals(couponResponse.getBody().getId(), null);
+		assertEquals(couponResponse.getStatusCode(), HttpStatus.OK);
+	}
+
+
 	/* Test case for get Coupon based on couponTitle*/
 	@Test
 	public void testGetCouponbyTitle() {
 	
 		
-		String couponTitle="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
+		
 		
         // define return value for method getUniqueId()
         when(couponRepository.getCouponByCouponTitle(couponTitle)).thenReturn(coupon);
         
         ResponseEntity<Coupon> couponResponse= controller.getCouponByTitle(couponTitle);
-        System.out.println("Hai");
+       
 
         // use mock in test....
         assertEquals(couponResponse.getBody().getCouponTitle(), coupon.getCouponTitle());
@@ -105,7 +126,6 @@ public class CouponControllerTest {
 	@Test
 	public void testSaveCoupon() {
 		
-	String couponTitle="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
 		
         // define return value for method getUniqueId()
         when(couponRepository.getCouponByCouponTitle(couponTitle)).thenReturn(coupon);
@@ -113,14 +133,13 @@ public class CouponControllerTest {
         ResponseEntity<Coupon> couponResponse= controller.saveCoupon(coupon);
 
         // use mock in test....
-        //assertEquals(couponResponse.getBody().getId(), coupon.getId());
+        
         assertEquals(couponResponse.getStatusCode(), HttpStatus.CREATED);
 	}
 	
 	@Test
 	public void testUpdateCoupon() {
 		
-	String uId="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
 		
         // define return value for method getUniqueId()
       
@@ -128,16 +147,15 @@ public class CouponControllerTest {
         ResponseEntity<Coupon> couponResponse= controller.updateCoupon(uId, coupon);
 
         // use mock in test....
-      //  assertEquals(couponResponse.getBody(), coupon);
+    
         assertEquals(couponResponse.getStatusCode(), HttpStatus.OK);
 	}
 	
 	@Test
 	public void testDeleteCoupon() {
 		
-		String id="1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3";
 		 
-        ResponseEntity<Coupon> couponResponse= controller.deleteCoupon(coupon.getId());
+        ResponseEntity<Coupon> couponResponse= controller.deleteCoupon(uId);
 
         assertEquals(couponResponse.getStatusCode(), HttpStatus.NO_CONTENT);
 	}

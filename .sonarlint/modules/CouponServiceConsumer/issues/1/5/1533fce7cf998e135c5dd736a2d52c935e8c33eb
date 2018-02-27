@@ -1,0 +1,14 @@
+
+xsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¸·ËH³ RMAJORZ
+CODE_SMELL
+e
+squid:S106,"9Replace this use of System.out or System.err by a logger.(ö¬H´ RMAJORZ
+CODE_SMELL
+³%squid:RedundantThrowsDeclarationCheck3"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¥¬ÔŽHµ RMINORZ
+CODE_SMELL
+Ä%squid:RedundantThrowsDeclarationCheck"}Remove the declaration of thrown exception 'org.springframework.web.client.RestClientException' which is a runtime exception.(å¦Ç¡H¶ RMINORZ
+CODE_SMELL
+j
+squid:S106."9Replace this use of System.out or System.err by a logger.(ûÊº¥øÿÿÿÿH· RMAJORZ
+CODE_SMELL
+qsquid:S2259."FA "NullPointerException" could be thrown; "response" is nullable here.(ûÊº¥øÿÿÿÿH¸ RMAJORZBUG

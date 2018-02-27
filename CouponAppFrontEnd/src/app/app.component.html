@@ -1,14 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="align-content:center">
+<div >
   <h1>
     Welcome to Coupon Application
   </h1>
 
 
+  <h2>
+      Dashboard
+    </h2>
+  <form #myform="ngForm" >
 
-  <form #myform="ngForm" (ngSubmit)="onSubmit()">
-
-            <table border="1 px solid">
+            <table id="alter">
             <tr>
               <td>
                 <label for="coupon-title">Coupon title</label>
@@ -63,16 +65,20 @@
               <td><label for="updatedDate">Updated Date</label> </td>
               <td>
                 <input type="text" id="updatedDate" name="updatedDate" ngControl="updatedDate" required [(ngModel)]="newCoupon.updatedDate">
+
+
+                <datepicker [(ngModel)]="newCoupon.updatedDate" [viewFormat]="'DD/MM/YYYY'" [modelFormat]="'YYYY-MM-DD'"  [id]="'updatedDate'" [label]="'To'"></datepicker>
+
               </td>
             </tr>
 
             <tr>
-                <td></td></tr>
+              <td colspan=2></td>
+                </tr>
             <tr>
-              <td></td>
+                <td colspan=2 align="center">
 
-              <td>
-                <button type="submit">Create Coupon</button>
+                <button class="btn" (click)="save(coupon)"  >Create</button><button class="btn" (click)="update(coupon)" >Update</button>  <button  class="btn" (click)="delete(coupon)">Delete</button>
               </td>
             </tr>
           </table>
@@ -82,13 +88,12 @@
 
 
   <div>
-      ==============================================================================================================================================================
-    </div>
-
-
+      <h2>
+          Available Coupon List
+        </h2>
 
     <form #myform="ngForm" >
-        <table>
+        <table id="alter">
 
 
           <tr>
@@ -102,51 +107,56 @@
             <th><label for="validTill">valid Till</label> </th>
             <th><label for="createdDate">Created Date</label> </th>
             <th><label for="updatedDate">Updated Date</label> </th>
+            <th><label for="Operation">Operation</label> </th>
           </tr>
           <tr *ngFor="let coupon of coupons" class="list-group-item">
 
             <td>
-              <input type="text" id="coupon-title" name="couponTitle" ngControl="couponTitle" required [(ngModel)]="coupon.couponTitle">
+              <span >{{ coupon.couponTitle}}</span>
             </td>
 
 
             <td>
-              <input type="text" id="coupon-title" name="couponDescription" ngControl="couponDescription" required [(ngModel)]="coupon.couponDescription">
+              <span > {{ coupon.couponDescription }}</span>
             </td>
 
 
             <td>
-              <input type="text" id="value" name="value" ngControl="value" required [(ngModel)]="coupon.value">
+                <span > {{ coupon.value }}</span>
+
             </td>
 
 
             <td>
-              <input type="text" id="creditType" name="creditType" ngControl="creditType" required [(ngModel)]="coupon.creditType">
+                <span > {{ coupon.creditType }}</span>
+
             </td>
 
 
             <td>
-              <input type="text" id="author" name="author" ngControl="author" required [(ngModel)]="coupon.author">
+                <span > {{ coupon.author }}</span>
+
             </td>
 
 
             <td>
-              <input type="text" id="validTill" name="validTill" ngControl="validTill" required [(ngModel)]="coupon.validTill">
+                <span > {{ coupon.validTill }}</span>
+
             </td>
 
 
             <td>
-              <input type="text" id="createdDate" name="createdDate" ngControl="createdDate" required [(ngModel)]="coupon.createdDate">
+                <span > {{ coupon.createdDate }}</span>
+
             </td>
 
 
             <td>
-              <input type="text" id="updatedDate" name="updatedDate" ngControl="updatedDate" required [(ngModel)]="coupon.updatedDate">
+                <span > {{ coupon.updatedDate }}</span>
+
             </td>
-            <td></td> <button type="submit">Update</button>
-            <td>
-              <button type="submit">Delete</button>
-            </td>
+            <td><button type="submit" (click)="select(coupon)">Select</button>
+
           </tr>
         </table>
 
@@ -155,3 +165,50 @@
 
 
 </div>
+
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+}
+table#alter tr:nth-child(even) {
+    background-color: #eee;
+}
+table#alter tr:nth-child(odd) {
+    background-color: #fff;
+}
+table#alter th {
+    color: white;
+    background-color: gray;
+}
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 18;
+  -moz-border-radius: 18;
+  border-radius: 18px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+</style>

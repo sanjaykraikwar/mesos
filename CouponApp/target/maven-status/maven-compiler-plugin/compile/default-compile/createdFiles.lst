@@ -1,5 +1,0 @@
-com\epam\mesos\CouponApplication.class
-com\epam\mesos\controller\CouponController.class
-com\epam\mesos\model\Coupon.class
-com\epam\mesos\repository\CouponRepository.class
-com\epam\mesos\config\SwaggerConfig.class

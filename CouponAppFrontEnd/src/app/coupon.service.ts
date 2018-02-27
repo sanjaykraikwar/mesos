@@ -14,12 +14,14 @@ export class CouponService {
     constructor(private http: Http  ) {}
 
     getCoupon(coupon: Coupon): Observable<Coupon> {
-        return this.http.get('http://localhost:8080/coupon/1de4bc8c-bb54-4b12-8a2a-ccbbd1f417a3')
+
+      let url = 'http://10.71.13.3:8081/coupon/' + coupon.id;
+        return this.http.get(url)
         .map(res =>  res.json());
     }
 
     public getCoupons (): Observable<Coupon[]> {
-      return this.http.get('http://localhost:8080/coupon/all')
+      return this.http.get('http://10.71.13.3:8081/coupon/all')
                       .map(res => res.json());
       }
 
@@ -28,12 +30,37 @@ export class CouponService {
 
 
 
-          let url = 'http://localhost:8080/coupon';
+          let url = 'http://10.71.13.3:8081/coupon';
 
           let headers = new Headers({ 'Content-Type': 'application/json' });
           let options = new RequestOptions({ headers: headers });
           return this.http.post(url, coupon, options)
           .map(res =>  res.json());
+
+
       }
+
+
+
+      deleteCoupon(id: string): Observable<any> {
+
+              let url = 'http://10.71.13.3:8081/coupon/' + id ;
+                return this.http.delete(url)
+                .map(res =>  res.json());
+
+            }
+
+
+            updateCoupon(coupon: Coupon): Observable<Coupon> {
+
+                        let url = 'http://10.71.13.3:8081/coupon/' + coupon.id;
+
+                        let headers = new Headers({ 'Content-Type': 'application/json' });
+                        let options = new RequestOptions({ headers: headers });
+                        return this.http.put(url, coupon, options)
+                        .map(res =>  res.json());
+
+                  }
+
 
 }
